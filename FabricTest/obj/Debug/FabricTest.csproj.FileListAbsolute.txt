@@ -1,0 +1,5 @@
+c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\bin\FabricTest.dll
+c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\bin\FabricTest.pdb
+c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\obj\Debug\FabricTest.csprojResolveAssemblyReference.cache
+c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\obj\Debug\FabricTest.dll
+c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\obj\Debug\FabricTest.pdb
