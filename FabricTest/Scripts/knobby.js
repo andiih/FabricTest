@@ -1,19 +1,50 @@
 ﻿var knobby = function() {
 
+    var Point = function (x, y) {
+        this.x = x;
+        this.y = y;
+    };
+
+    var  animateTo=function(pt,obj,center,radius) {
+        var dX1 = obj.left - center.x;
+        var dY1 = obj.top - center.y;
+        var angle1 = Math.atan2(dY1, dX1);
+
+        var dX2 = pt.x - center.x;
+        var dY2 = pt.y - center.y;
+        var angle2 = Math.atan2(dY2, dX2);
+
+        fabric.util.animate({
+            startValue: angle1,
+            endValue: angle2,
+            duration: 1000,
+
+            // linear movement
+            easing: function (t, b, c, d) { return c * t / d + b; },
+
+            onChange: function (angle) {
+                console.log(angle);
+                var newpt = makeRadianCirle(angle, radius, center.x, center.y);
+                obj.set({ top: newpt.y, left: newpt.x }).setCoords();
+                console.log('called2');
+
+                canvas.renderAll();
+            }
+        });
+    };
+
+
     var constrainToCircle = function (obj, center, radius) {
         var dX = obj.left - center.x;
         var dY = obj.top - center.y;
         var angle = Math.atan2(dY, dX);
         var pt = makeRadianCirle(angle, radius, center.x, center.y);
-        obj.top = pt.y;
-        obj.left = pt.x;
+//        obj.top = pt.y;
+//        obj.left = pt.x;
+        obj.set({ left: pt.x, top: pt.y }).setCoords();
     };
 
-    var Point = function(x, y) {
-        this.x = x;
-        this.y = y;
-    };
-    
+
     var makeRadianCirle=function(theta,r, x,y) {
         var cx = r * Math.cos(theta) + x;
         var cy = r * Math.sin(theta) + y;
@@ -33,6 +64,8 @@
         constrainToCircle(dragMe, center, radius);
         return canvas.renderAll.bind(canvas);
     };
+
+
 
     var moveObjectToPoint = function(obj, point, radius, center) {
         obj.animate({ top: point.y, left: point.x }, { onChange: changer() });
@@ -64,5 +97,8 @@
 
     var lastTick = ticks[ticks.length - 1];
     var pt = makeRadianCirle(lastTick, radius, center.x, center.y);
-    moveObjectToPoint(dragMe, pt, radius, center);
+    //moveObjectToPoint(dragMe, pt, radius, center);
+    animateTo(pt,dragMe,center,radius);
+
+
 }();
