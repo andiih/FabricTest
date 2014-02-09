@@ -23,15 +23,13 @@
         var angle1 = calcAngle(obj, center);
         var angle2 = calcAnglePoints(pt, center);
 
-        console.log("a1 " + angle1 + " a2 " + angle2);
-
         fabric.util.animate({
             startValue: angle1,
             endValue: angle2,
             duration: time,
 
             // linear movement
-            easing: function (t, b, c, d) { return c * t / d + b; },
+            // easing: function (t, b, c, d) { return c * t / d + b; },
 
             onChange: function (angle) {
                 var newpt = makeRadianCirle(angle, radius, center.x, center.y);
@@ -43,9 +41,6 @@
 
 
     var constrainToCircle = function (obj, center, radius) {
-//        var dX = obj.left - center.x;
-//        var dY = obj.top - center.y;
-        //        var angle = Math.atan2(dY, dX);
         var angle = calcAngle(obj, center);
         var pt = makeRadianCirle(angle, radius, center.x, center.y);
         obj.set({ left: pt.x, top: pt.y }).setCoords();
@@ -67,20 +62,17 @@
     };
 
     var nearestTick = function(angle, ticks) {
-        //console.log("near " + angle);
         var mindist = 99999;
         var found = 0;
         for (var i = 0; i < ticks.length; i++) {
             var atick = ticks[i];
             var thisdist = Math.abs(angle - atick);
-            //console.log("dist " + thisdist + " i " + i);
             if (thisdist < mindist) {
                 mindist=thisdist;
                 found = i;
             }
             
         }
-        //console.log(found);
         return ticks[found];
     };
 
@@ -109,24 +101,21 @@
     canvas.add(track);
 
     var dragMe = new fabric.Circle({ radius: 20, fill: 'green', top: center.y - radius, left: center.x , hasBorders: false, hasControls: false, originX:'center', originY:'center'  });
+
     dragMe.on('moving', function (options) {
         constrainToCircle(this, center, radius);
-        var angle = calcAngle(dragMe, center);
-        //console.log(angle);
     });
     dragMe.on('mouseup', function (options) {
         animateToNearest(dragMe, radius, center,250);
     });
+    
+
     for (var i = 0; i < ticks.length; i++) {
         var tick = ticks[i];
         drawTick(tick, center, radius + 10, 20, canvas);
     }
 
     animateToNearest(dragMe, radius, center);
-//    var startpt = makeRadianCirle(ticks[5], radius, center.x, center.y);
-//    dragMe.set({ top: startpt.y, left: startpt.x }).setCoords();
     canvas.add(dragMe);
-
-
 
 }();
