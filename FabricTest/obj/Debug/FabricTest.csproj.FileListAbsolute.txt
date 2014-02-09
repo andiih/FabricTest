@@ -3,3 +3,8 @@ c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\bin\
 c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\obj\Debug\FabricTest.csprojResolveAssemblyReference.cache
 c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\obj\Debug\FabricTest.dll
 c:\users\andrew\documents\visual studio 2012\Projects\FabricTest\FabricTest\obj\Debug\FabricTest.pdb
+C:\Users\Andrew\Documents\GitHub\FabricTest\FabricTest\bin\FabricTest.dll
+C:\Users\Andrew\Documents\GitHub\FabricTest\FabricTest\bin\FabricTest.pdb
+C:\Users\Andrew\Documents\GitHub\FabricTest\FabricTest\obj\Debug\FabricTest.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\FabricTest\FabricTest\obj\Debug\FabricTest.dll
+C:\Users\Andrew\Documents\GitHub\FabricTest\FabricTest\obj\Debug\FabricTest.pdb

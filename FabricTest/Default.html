@@ -4,6 +4,7 @@
     <title></title>
  	<!--[if IE]><script type="text/javascript" src="Scripts/excanvas.js"></script><![endif]-->
     <script src="Scripts/fabric.min.js"></script>
+    <script src="Scripts/fabric.curvedText.js"></script>
     <script src="Scripts/jquery-1.11.0.min.js"></script>
     <style type="text/css">
         #container {
@@ -20,11 +21,24 @@
             left: 50px;
         }
 
+        #behind {
+            position: absolute;
+            top: 250px;
+            left: 250px;
+            width: 380px;
+            height: 380px;
+            background-color: #002288;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
     </style>
 </head>
     <body>
         <div id="container">
-            <canvas id='c' width="500" height="500"></canvas>
+            <div id="behind">This element is behind the canvas.<br/> Click me.<br/>Works Outside Only :-(</div>          
+            <canvas id='c' width="600" height="600"></canvas>
         </div>
         <script src="Scripts/knobby.js"></script>
     </body>

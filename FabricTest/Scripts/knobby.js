@@ -18,6 +18,12 @@
         return thisangle;
     };
 
+    var makeRadianCirle = function (theta, r, pt) {
+        var cx = r * Math.cos(theta) + pt.x;
+        var cy = r * Math.sin(theta) + pt.y;
+        return new Point(cx, cy);
+    };
+
     var  animateTo=function(pt,obj,center,radius, time) {
         time = time || 1000;
         var angle1 = calcAngle(obj, center);
@@ -32,7 +38,7 @@
             // easing: function (t, b, c, d) { return c * t / d + b; },
 
             onChange: function (angle) {
-                var newpt = makeRadianCirle(angle, radius, center.x, center.y);
+                var newpt = makeRadianCirle(angle, radius, center);
                 obj.set({ top: newpt.y, left: newpt.x }).setCoords();
                 canvas.renderAll();
             }
@@ -40,24 +46,20 @@
     };
 
 
+
     var constrainToCircle = function (obj, center, radius) {
         var angle = calcAngle(obj, center);
-        var pt = makeRadianCirle(angle, radius, center.x, center.y);
+        var pt = makeRadianCirle(angle, radius, center);
         obj.set({ left: pt.x, top: pt.y }).setCoords();
     };
 
 
-    var makeRadianCirle=function(theta,r, x,y) {
-        var cx = r * Math.cos(theta) + x;
-        var cy = r * Math.sin(theta) + y;
-        return new Point(cx, cy);
-    };
 
 
     var drawTick = function(angle, center ,radius, length, canvas) {
-        var p1 = makeRadianCirle(angle, radius, center.x, center.y);
-        var p2 = makeRadianCirle(angle, radius + length, center.x, center.y);
-        var line = new fabric.Line([p1.x, p1.y, p2.x, p2.y], {stroke:'#cccccc', originX:'center', originY:'center'});
+        var p1 = makeRadianCirle(angle, radius, center);
+        var p2 = makeRadianCirle(angle, radius + length, center);
+        var line = new fabric.Line([p1.x, p1.y, p2.x, p2.y], { stroke: '#cccccc', originX: 'center', originY: 'center', hasBorders: false, hasControls: false, selectable: false});
         canvas.add(line);
     };
 
@@ -81,24 +83,57 @@
         time = time || 1000;
         var angle = calcAngle(obj, center);
         var nearest = nearestTick(angle, ticks);
-        var pt = makeRadianCirle(nearest, radius, center.x, center.y);
+        var pt = makeRadianCirle(nearest, radius, center);
         animateTo(pt, obj, center, radius,time);
 
     };
 
 
+    var drawOnACurve = function (s, angle, radius, center, spacing,fontadjust ,canvas) {
+        var ang = (180 / Math.PI) * angle;
+        var inc = (180 / Math.PI) * spacing;
+        var fontadjustinc = (180 / Math.PI) * fontadjust;
+        var font = { hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center', fontSize:20, fill:'#cccccc' };
+        var em = new fabric.Text("M", font);
+        var emwidth = em.getBoundingRectWidth();
+        ang = ang + 90;
+        if (ang > 360) ang -= 360;
+        var group = [];
+        for (var i = 0; i < s.length; i++) {
+            var c = s.charAt(i);
+            var posiitonForChar = makeRadianCirle(angle, radius, center);
+            var text = new fabric.Text(c,font);
+            var ratio =  text.getBoundingRectWidth() / emwidth;
+
+            //console.log(c + ": " + ratio + " Em: " + text.getBoundingRectWidth()) + "/" + emwidth;
+            
+            text.set({ angle: ang, top: posiitonForChar.y, left: posiitonForChar.x, }).setCoords();
+            //canvas.add(text);
+            group.push(text);
+            ang += inc + fontadjustinc * ratio;
+            angle += spacing  + fontadjust* ratio;
+        }
+        canvas.add(new fabric.Group(group, { hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center' }));
+    };
+
     // create a wrapper around native canvas element (with id="c")
     var canvas = new fabric.Canvas('c');
 
-    var center = new Point(250, 250);
+    var center = new Point(300, 300);
     var radius = 200;
 
-    var ticks = [0.2, 0.3, 0.4,0.5,-0.1,-0.2,-0.3,-1.9, -3,3];
+    var ticks = [0.4, 0.5, 0.6,0.7,-0.1,-0.2,-0.3,-1.9, -3,3];
 
     var track = new fabric.Circle({
-        radius: radius, stroke: 'green', fill: 'rgba(0,0,0,0)', strokeWidth: 2, left: center.x, top: center.y, hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center'
+        radius: radius, stroke: 'green', fill: 'rgba(0,0,0,0)', strokeWidth: 4, left: center.x, top: center.y, hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center'
     });
     canvas.add(track);
+
+    var maskwidth = 220;
+    var mask = new fabric.Circle({
+        radius: radius+1+maskwidth/2, stroke: '#006699', fill: 'rgba(0,0,0,0)', strokeWidth: maskwidth, left: center.x, top: center.y, hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center'
+    });
+    canvas.add(mask);
 
     var dragMe = new fabric.Circle({ radius: 20, fill: 'green', top: center.y - radius, left: center.x , hasBorders: false, hasControls: false, originX:'center', originY:'center'  });
 
@@ -117,5 +152,18 @@
 
     animateToNearest(dragMe, radius, center);
     canvas.add(dragMe);
+
+    //drawOnACurve("Washing Machines", ticks[0], radius + 50, center, 0.04, 0.02, canvas);
+    drawOnACurve("Dishwashers", ticks[6], radius + 50, center, 0.04, 0.02, canvas);
+    //drawOnACurve("Start", ticks[7], radius + 50, center, 0.04, 0.02, canvas);
+    //drawOnACurve("Regrigerators", ticks[9], radius + 50, center, 0.04, 0.02, canvas);
+//    var rad = radius + 50;
+//    var ct = new CurvedText(canvas, { radius: rad, top: center.y, left: center.x + rad, angle: 45, spacing: 3, text: "Washing Machines" });
+//    var ct2 = new CurvedText(canvas, { radius: rad, top: center.y, left: center.x + rad, angle: 45, spacing: 3, text: "Dishwashers" });
+//    var ct3 = new CurvedText(canvas, { radius: rad, top: center.y, left: center.x + rad, angle: 45, spacing: 3, text: "Tumble Dryers" });
+
+    $('#behind').click(function() {
+        alert('clicked');
+    });
 
 }();
