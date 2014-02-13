@@ -58,14 +58,45 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.html" />
+    <Content Include="img\landscape\01.jpg" />
+    <Content Include="img\landscape\02.jpg" />
+    <Content Include="img\landscape\03.jpg" />
+    <Content Include="img\landscape\04.jpg" />
+    <Content Include="img\landscape\05.jpg" />
+    <Content Include="img\landscape\06.jpg" />
+    <Content Include="img\landscape\07.jpg" />
+    <Content Include="img\landscape\08.jpg" />
+    <Content Include="img\landscape\09.jpg" />
+    <Content Include="img\landscape\10.jpg" />
+    <Content Include="img\landscape\11.jpg" />
+    <Content Include="img\landscape\12.jpg" />
+    <Content Include="img\landscape\thumb-01.jpg" />
+    <Content Include="img\landscape\thumb-02.jpg" />
+    <Content Include="img\landscape\thumb-03.jpg" />
+    <Content Include="img\landscape\thumb-04.jpg" />
+    <Content Include="img\landscape\thumb-05.jpg" />
+    <Content Include="img\landscape\thumb-06.jpg" />
+    <Content Include="img\landscape\thumb-07.jpg" />
+    <Content Include="img\landscape\thumb-08.jpg" />
+    <Content Include="img\landscape\thumb-09.jpg" />
+    <Content Include="img\landscape\thumb-10.jpg" />
+    <Content Include="img\landscape\thumb-11.jpg" />
+    <Content Include="img\landscape\thumb-12.jpg" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\n03.png" />
     <Content Include="Scripts\excanvas.compiled.js" />
     <Content Include="Scripts\excanvas.js" />
+    <Content Include="Scripts\fabric.curvedText.js" />
     <Content Include="Scripts\fabric.min.js" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.11.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.0.js" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jssor.core.js" />
+    <Content Include="Scripts\jssor.slider.js" />
+    <Content Include="Scripts\jssor.utils.js" />
     <Content Include="Scripts\knobby.js" />
+    <Content Include="Scripts\skrollr.min.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.11.0.min.map" />
   </ItemGroup>

@@ -166,4 +166,15 @@
         alert('clicked');
     });
 
+    var listener = function (e) {
+        $('#anc').text(e.curTop);
+        var angle = (e.curTop/8) * 0.0174532925- Math.PI;
+        var time = 500;
+        var nearest = nearestTick(angle, ticks);
+        var pt = makeRadianCirle(nearest, radius, center);
+        animateTo(pt, dragMe, center, radius, time);
+    };
+
+    skrollr.init({ forceHeight: true, beforerender: listener });
 }();
+
