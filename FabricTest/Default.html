@@ -17,10 +17,12 @@
         #anc {position: fixed}
         #container {
             position: fixed;
+            top: 0px;
+            left: 0px;
             width: 600px;
             height: 600px;
             margin: 50px auto;
-            background: #003366;
+            background: transparent;
         }
 
         #c {
@@ -41,92 +43,26 @@
             cursor: pointer;
         }
 
+        .content img { width:500px;margin: 50px 0;}
 
 
-                    /* jssor slider navigator skin 03 css */
-            /*
-            .jssorn03 div           (normal)
-            .jssorn03 div:hover     (normal mouseover)
-            .jssorn03 .av           (active)
-            .jssorn03 .av:hover     (active mouseover)
-            .jssorn03 .dn           (mousedown)
-            */
-            .jssorn03 div, .jssorn03 div:hover, .jssorn03 .av
-            {
-                background: url(../img/n03.png) no-repeat;
-                overflow:hidden;
-                cursor: pointer;
-            }
-            .jssorn03 div { background-position: -5px -4px; }
-            .jssorn03 div:hover, .jssorn03 .av:hover { background-position: -35px -4px; }
-            .jssorn03 .av { background-position: -65px -4px; }
-            .jssorn03 .dn, .jssorn03 .dn:hover { background-position: -95px -4px; }
     </style>
 </head>
     <body>
         <div id="anc">Anc</div>
         <div id="skrollr-body">
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/01.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/02.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/03.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/04.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/05.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/06.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/07.jpg" /></div>
+                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/08.jpg" /></div>
             <div id="container" data-2800="fred:0" data-top="fred:1" >
-                <div id="behind">This element is behind the canvas.<br/> Click me.<br/>Works Outside Only :-(</div>          
 
-                <!-- Jssor Slider Begin -->
-                <!-- You can move inline styles (except 'top', 'left', 'width' and 'height') to css file or css block. -->
-                <div id="slider1_container" style="position: absolute; top: 140px; left: 0px; width: 600px;
-                                          height: 300px;">
 
-                    <!-- Loading Screen -->
-                    <div u="loading" style="position: absolute; top: 0px; left: 0px;">
-                        <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
-                                                                                                                                                                                 background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
-                        </div>
-                        <div style="position: absolute; display: block; background: url(img/loading.gif) no-repeat center center;
-                                                                                                                                                                                                                                                                                                top: 0px; left: 0px;width: 100%;height:100%;">
-                        </div>
-                    </div>
 
-                    <!-- Slides Container -->
-                    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
-                                                                                                                                                                                                                                                                                                                                                                                    overflow: hidden;">
-                        <div><img u="image" src="img/landscape/01.jpg" /></div>
-                        <div><img u="image" src="img/landscape/02.jpg" /></div>
-                        <div><img u="image" src="img/landscape/03.jpg" /></div>
-                        <div><img u="image" src="img/landscape/04.jpg" /></div>
-                        <div><img u="image" src="img/landscape/05.jpg" /></div>
-                        <div><img u="image" src="img/landscape/06.jpg" /></div>
-                        <div><img u="image" src="img/landscape/07.jpg" /></div>
-                        <div><img u="image" src="img/landscape/08.jpg" /></div>
-                    </div>
-        
-                    <!-- Navigator Skin Begin -->
-                    <style>
-                        /* jssor slider navigator skin 03 css */
-                        /*
-            .jssorn03 div           (normal)
-            .jssorn03 div:hover     (normal mouseover)
-            .jssorn03 .av           (active)
-            .jssorn03 .av:hover     (active mouseover)
-            .jssorn03 .dn           (mousedown)
-            */
-                        .jssorn03 div, .jssorn03 div:hover, .jssorn03 .av
-                        {
-                            background: url(img/n03.png) no-repeat;
-                            overflow:hidden;
-                            cursor: pointer;
-                        }
-                        .jssorn03 div { background-position: -5px -4px; }
-                        .jssorn03 div:hover, .jssorn03 .av:hover { background-position: -35px -4px; }
-                        .jssorn03 .av { background-position: -65px -4px; }
-                        .jssorn03 .dn, .jssorn03 .dn:hover { background-position: -95px -4px; }
-                    </style>
-
-                    <!-- navigator container -->
-                    <div u="navigator" class="jssorn03" style="position: absolute; bottom: 127px; left: 220px; z-index: 100000;">
-                        <!-- navigator item prototype -->
-                        <div u="prototype" style="position: absolute; width: 21px; height: 21px; text-align:center; line-height:21px; color:white; font-size:12px;"><NumberTemplate></NumberTemplate></div>
-                    </div>
-                </div>
-                <!-- Jssor Slider End -->            
-                <!-- Navigator Skin End -->
                 <canvas id='c' width="600" height="600"></canvas>
             
 
@@ -144,23 +80,7 @@
         <script>
 
             jQuery(document).ready(function ($) {
-                var options = {
-                    $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
 
-                    $NavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
-                        $Class: $JssorNavigator$,                       //[Required] Class to create navigator instance
-                        $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-                        $ActionMode: 1,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
-                        $AutoCenter: 0,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
-                        $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
-                        $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
-                        $SpacingX: 0,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
-                        $SpacingY: 0,                                   //[Optional] Vertical space between each item in pixel, default value is 0
-                        $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
-                    }
-                };
-                var jssor_slider1 = new $JssorSlider$("slider1_container", options);
-                $('.jssorn03').appendTo('#container');
             });
     </script>
 </html>

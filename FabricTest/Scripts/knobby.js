@@ -1,5 +1,6 @@
 ﻿var knobby = function() {
-
+    var conversionFactor = 0.0174532925;
+    var sk={};
     var Point = function (x, y) {
         this.x = x;
         this.y = y;
@@ -51,6 +52,8 @@
         var angle = calcAngle(obj, center);
         var pt = makeRadianCirle(angle, radius, center);
         obj.set({ left: pt.x, top: pt.y }).setCoords();
+        pixels = ((angle+ Math.PI)/conversionFactor)*8;
+        sk.setScrollTop(pixels);
     };
 
 
@@ -168,13 +171,13 @@
 
     var listener = function (e) {
         $('#anc').text(e.curTop);
-        var angle = (e.curTop/8) * 0.0174532925- Math.PI;
+        var angle = (e.curTop/8) * conversionFactor- Math.PI;
         var time = 500;
         var nearest = nearestTick(angle, ticks);
         var pt = makeRadianCirle(nearest, radius, center);
         animateTo(pt, dragMe, center, radius, time);
     };
 
-    skrollr.init({ forceHeight: true, beforerender: listener });
+    sk=skrollr.init({ forceHeight: true, beforerender: listener });
 }();
 
