@@ -108,11 +108,12 @@
             var text = new fabric.Text(c,font);
             var ratio =  text.getBoundingRectWidth() / emwidth;
             text.set({ angle: ang, top: posiitonForChar.y, left: posiitonForChar.x, }).setCoords();
-            group.push(text);
+            canvas.add(text);
+            //group.push(text);
             ang += inc + fontadjustinc * ratio;
             angle += spacing  + fontadjust* ratio;
         }
-        canvas.add(new fabric.Group(group, { hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center' }));
+        //canvas.add(new fabric.Group(group, { hasBorders: false, hasControls: false, selectable: false, originX: 'center', originY: 'center' }));
     };
 
 
@@ -180,10 +181,11 @@
         animateToNearest(dragMe, radius, center, 250, ticks, canvas);
         canvas.add(dragMe);
 
-        drawOnACurve("Washing Machines", ticks[0], radius + 50, center, 0.04, 0.02, canvas);
-        drawOnACurve("Dishwashers", ticks[6], radius + 50, center, 0.04, 0.02, canvas);
-        drawOnACurve("Regrigerators", ticks[7], radius + 50, center, 0.04, 0.02, canvas);
-        drawOnACurve("Start", ticks[8], radius + 50, center, 0.04, 0.02, canvas);
+        var space = 50;
+        drawOnACurve("Washing Machines", ticks[0], radius + space, center, 0.04, 0.02, canvas);
+        drawOnACurve("Dishwashers", ticks[6], radius + space, center, 0.04, 0.02, canvas);
+        drawOnACurve("Regrigerators", ticks[7], radius + space, center, 0.04, 0.02, canvas);
+        drawOnACurve("Start", ticks[8], radius + space, center, 0.04, 0.02, canvas);
 
         $('#behind').click(function() {
             alert('clicked');
