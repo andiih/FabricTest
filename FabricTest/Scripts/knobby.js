@@ -140,11 +140,16 @@
 
     var dragMe = new fabric.Circle({ radius: 20, fill: 'green', top: center.y - radius, left: center.x , hasBorders: false, hasControls: false, originX:'center', originY:'center'  });
 
+    var constrain = false;
+
     dragMe.on('moving', function (options) {
         constrainToCircle(this, center, radius);
+        constrain = true;
     });
+    
     dragMe.on('mouseup', function (options) {
-        animateToNearest(dragMe, radius, center,250);
+        animateToNearest(dragMe, radius, center, 250);
+        constrain = false;
     });
     
 
@@ -170,12 +175,16 @@
     });
 
     var listener = function (e) {
+        if (constrain) return;
         $('#anc').text(e.curTop);
         var angle = (e.curTop/8) * conversionFactor- Math.PI;
-        var time = 500;
-        var nearest = nearestTick(angle, ticks);
-        var pt = makeRadianCirle(nearest, radius, center);
-        animateTo(pt, dragMe, center, radius, time);
+        //var time = 500;
+        //var nearest = nearestTick(angle, ticks);
+        //var pt = makeRadianCirle(nearest, radius, center);        
+        var pt = makeRadianCirle(angle, radius, center);
+        dragMe.set({ top: pt.y, left: pt.x }).setCoords();
+        canvas.renderAll();
+        //animateTo(pt, dragMe, center, radius, time);
     };
 
     sk=skrollr.init({ forceHeight: true, beforerender: listener });

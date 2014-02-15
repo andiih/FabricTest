@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.html" />
+    <Content Include="Slides.html" />
     <Content Include="img\landscape\01.jpg" />
     <Content Include="img\landscape\02.jpg" />
     <Content Include="img\landscape\03.jpg" />

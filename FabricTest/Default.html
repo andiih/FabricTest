@@ -43,14 +43,32 @@
             cursor: pointer;
         }
 
-        .content img { width:500px;margin: 50px 0;}
+        .content {
+             width:500px;
+             margin: 50px 0;
+            position: fixed;
+            top: 146px;
+            
+        }
+
+        .content img {
+        }
 
 
+        .b0 { z-index: -2;}
+        .b1 { z-index: -3;}
+        .b2 { z-index: -4;}
+        .b3 { z-index: -5;}
+        .b4 { z-index: -6;}
+        .b5 { z-index: -7;}
+        .b6 { z-index: -8;}
+        .b7 { z-index: -9;}
     </style>
 </head>
     <body>
         <div id="anc">Anc</div>
         <div id="skrollr-body">
+                      <!--      
                 <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/01.jpg" /></div>
                 <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/02.jpg" /></div>
                 <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/03.jpg" /></div>
@@ -59,7 +77,19 @@
                 <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/06.jpg" /></div>
                 <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/07.jpg" /></div>
                 <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/08.jpg" /></div>
-            <div id="container" data-2800="fred:0" data-top="fred:1" >
+                -->
+
+            
+            <div class="content b0"  data-0="opacity: 1; " data-500="opacity: 0; " ><img u="image" src="img/landscape/01.jpg" /></div>
+            <div class="content b1"  data-500="opacity: 1; " data-1000="opacity: 0; " ><img u="image" src="img/landscape/02.jpg" /></div>
+            <div class="content b2"  data-1000="opacity: 1; " data-1500="opacity: 0; " ><img u="image" src="img/landscape/03.jpg" /></div>
+            <div class="content b3"  data-1500="opacity: 1; " data-2000="opacity: 0; " ><img u="image" src="img/landscape/04.jpg" /></div>
+            <div class="content b4"  data-2000="opacity: 1; " data-2500="opacity: 0; " ><img u="image" src="img/landscape/05.jpg" /></div>
+            <div class="content b5"  data-2500="opacity: 1; " data-3000="opacity: 0; " ><img u="image" src="img/landscape/06.jpg" /></div>
+            <div class="content b6"  data-3000="opacity: 1; " data-3500="opacity: 0; " ><img u="image" src="img/landscape/07.jpg" /></div>
+            <div class="content b7"  ><img u="image" src="img/landscape/07.jpg" /></div>
+
+            <div id="container">
 
 
 
