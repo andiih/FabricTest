@@ -1,116 +1,86 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
- 	<!--[if IE]><script type="text/javascript" src="Scripts/excanvas.js"></script><![endif]-->
-    <script src="Scripts/fabric.min.js"></script>
-    <script src="Scripts/fabric.curvedText.js"></script>
-    <script src="Scripts/jquery-1.11.0.min.js"></script>
-    
-    <!-- Jsor Slider -->
-     <script type="text/javascript" src="Scripts/jssor.core.js"></script>
-    <script type="text/javascript" src="Scripts/jssor.utils.js"></script>
-    <script type="text/javascript" src="Scripts/jssor.slider.js"></script>
-    <script src="Scripts/skrollr.min.js"></script>
+    <head>
+        <title></title>
+        <!--[if IE]><script type="text/javascript" src="Scripts/excanvas.js"></script><![endif]-->
+        <script src="Scripts/fabric.min.js"></script>
+        <script src="Scripts/jquery-1.11.0.min.js"></script>
+        <script src="Scripts/skrollr.min.js"></script>
 
-    <style type="text/css">
-        #anc {position: fixed}
-        #container {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 600px;
-            height: 600px;
-            margin: 50px auto;
-            background: transparent;
-        }
+        <style type="text/css">
+            #anc {position: fixed}
+            #container {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 600px;
+                height: 600px;
+                margin: 50px auto;
+                background: transparent;
+            }
 
-        #c {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-        }
+            #c {
+                position: absolute;
+                top: 50px;
+                left: 50px;
+            }
 
-        #behind {
-            position: absolute;
-            top: 250px;
-            left: 250px;
-            width: 380px;
-            height: 380px;
-            background-color: #002288;
-            padding: 10px;
-            color: white;
-            cursor: pointer;
-        }
+            #behind {
+                position: absolute;
+                top: 250px;
+                left: 250px;
+                width: 380px;
+                height: 380px;
+                background-color: #002288;
+                padding: 10px;
+                color: white;
+                cursor: pointer;
+            }
 
-        .content {
-             width:500px;
-             margin: 50px 0;
-            position: fixed;
-            top: 146px;
+            .content {
+                width:500px;
+                margin: 50px 0;
+                position: fixed;
+                top: 146px;
             
-        }
+            }
 
-        .content img {
-        }
+            .content img {
+            }
 
 
-        .b0 { z-index: -2;}
-        .b1 { z-index: -3;}
-        .b2 { z-index: -4;}
-        .b3 { z-index: -5;}
-        .b4 { z-index: -6;}
-        .b5 { z-index: -7;}
-        .b6 { z-index: -8;}
-        .b7 { z-index: -9;}
-    </style>
-</head>
+            .b0 { z-index: -2;}
+            .b1 { z-index: -3;}
+            .b2 { z-index: -4;}
+            .b3 { z-index: -5;}
+            .b4 { z-index: -6;}
+            .b5 { z-index: -7;}
+            .b6 { z-index: -8;}
+            .b7 { z-index: -9;}
+            .b8 { z-index: -10;}
+            .b9 { z-index: -11;}
+        </style>
+    </head>
+    <!-- HInts here http://jsfiddle.net/9HFd9/ -->
     <body>
         <div id="anc">Anc</div>
         <div id="skrollr-body">
-                      <!--      
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/01.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/02.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/03.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/04.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/05.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/06.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/07.jpg" /></div>
-                <div class="content"  data--100-bottom-center="opacity: 0; " data--100-center-center="opacity: 1; " data--100-top-center="opacity: 0; "><img u="image" src="img/landscape/08.jpg" /></div>
-                -->
-
-            
-            <div class="content b0"  data-0="opacity: 1; " data-500="opacity: 0; " ><img u="image" src="img/landscape/01.jpg" /></div>
-            <div class="content b1"  data-500="opacity: 1; " data-1000="opacity: 0; " ><img u="image" src="img/landscape/02.jpg" /></div>
-            <div class="content b2"  data-1000="opacity: 1; " data-1500="opacity: 0; " ><img u="image" src="img/landscape/03.jpg" /></div>
-            <div class="content b3"  data-1500="opacity: 1; " data-2000="opacity: 0; " ><img u="image" src="img/landscape/04.jpg" /></div>
-            <div class="content b4"  data-2000="opacity: 1; " data-2500="opacity: 0; " ><img u="image" src="img/landscape/05.jpg" /></div>
-            <div class="content b5"  data-2500="opacity: 1; " data-3000="opacity: 0; " ><img u="image" src="img/landscape/06.jpg" /></div>
-            <div class="content b6"  data-3000="opacity: 1; " data-3500="opacity: 0; " ><img u="image" src="img/landscape/07.jpg" /></div>
-            <div class="content b7"  ><img u="image" src="img/landscape/07.jpg" /></div>
+            <div class="content b0"  data-64="opacity: 1; " data-569="opacity: 0; " ><img u="image" src="img/landscape/01.jpg" /></div>
+            <div class="content b1"  data-569="opacity: 1; " data-1302="opacity: 0; " ><img u="image" src="img/landscape/02.jpg" /></div>
+            <div class="content b2"  data-1302="opacity: 1; " data-1348="opacity: 0; " ><img u="image" src="img/landscape/03.jpg" /></div>
+            <div class="content b3"  data-1348="opacity: 1; " data-1394="opacity: 0; " ><img u="image" src="img/landscape/04.jpg" /></div>
+            <div class="content b4"  data-1394="opacity: 1; " data-1623="opacity: 0; " ><img u="image" src="img/landscape/05.jpg" /></div>
+            <div class="content b5"  data-1623="opacity: 1; " data-1669="opacity: 0; " ><img u="image" src="img/landscape/06.jpg" /></div>
+            <div class="content b6"  data-1669="opacity: 1; " data-1715="opacity: 0; " ><img u="image" src="img/landscape/07.jpg" /></div>
+            <div class="content b7"  data-1715="opacity: 1; " data-1760="opacity: 0; " ><img u="image" src="img/landscape/01.jpg" /></div>
+            <div class="content b8"  data-1760="opacity: 1; " data-2815="opacity: 0; " ><img u="image" src="img/landscape/02.jpg" /></div>
+            <div class="content b9"  ><img u="image" src="img/landscape/04.jpg" /></div>
 
             <div id="container">
-
-
-
                 <canvas id='c' width="600" height="600"></canvas>
-            
-
-
-
-
-
-
             </div>
         </div>
+
         <script src="Scripts/knobby.js"></script>
-        
-   
     </body>
-        <script>
-
-            jQuery(document).ready(function ($) {
-
-            });
-    </script>
 </html>
